@@ -1,0 +1,94 @@
+Disassembly Listing for labC
+Generated From:
+C:/Users/aquadri/MPLABXProjects/labC.X/dist/default/debug/labC.X.debug.elf
+5-Oct-2020 9:04:40 PM
+
+---  C:/Users/aquadri/MPLABXProjects/labC.X/labC_Part1.c  -----------------------------------------------
+1:             #include <xc.h>
+2:             #include <stdint.h>
+3:             
+4:             int32_t DELAY_CONST =150000*40;
+5:             
+6:             void delay_function( volatile int32_t x);
+7:             
+8:             int main(void)
+9:             {
+0084  E280     LDI R24, 0x20
+0085  B984     OUT 0x04, R24
+10:                //set PB5 to be out
+11:                DDRB = (1<<5); //bit 5 is an output
+12:            
+13:                while(1){
+14:                    //delay_function(DELAY_CONST);
+15:                    PORTB = 0;
+0086  B815     OUT 0x05, R1
+16:                    
+17:                    //delay_function(DELAY_CONST);
+18:                    PORTB = (1<<5);
+0087  B985     OUT 0x05, R24
+0088  CFFD     RJMP 0x86
+19:                }
+20:                return 0;   
+21:            }
+22:            void delay_function(volatile int32_t x){
+23:                while(x>0){
+24:                        x = x-1;
+25:                    }
+26:                }
+27:            
+28:            
+---  ./././././crt1/gcrt1.S  ----------------------------------------------------------------------------
+0000  940C     JMP 0x0
+0002  940C     JMP 0x0
+0004  940C     JMP 0x0
+0006  940C     JMP 0x0
+0008  940C     JMP 0x0
+000A  940C     JMP 0x0
+000C  940C     JMP 0x0
+000E  940C     JMP 0x0
+0010  940C     JMP 0x0
+0012  940C     JMP 0x0
+0014  940C     JMP 0x0
+0016  940C     JMP 0x0
+0018  940C     JMP 0x0
+001A  940C     JMP 0x0
+001C  940C     JMP 0x0
+001E  940C     JMP 0x0
+0020  940C     JMP 0x0
+0022  940C     JMP 0x0
+0024  940C     JMP 0x0
+0026  940C     JMP 0x0
+0028  940C     JMP 0x0
+002A  940C     JMP 0x0
+002C  940C     JMP 0x0
+002E  940C     JMP 0x0
+0030  940C     JMP 0x0
+0032  940C     JMP 0x0
+0034  940C     JMP 0x0
+0036  940C     JMP 0x0
+0038  940C     JMP 0x0
+003A  940C     JMP 0x0
+003C  940C     JMP 0x0
+003E  940C     JMP 0x0
+0040  940C     JMP 0x0
+0042  940C     JMP 0x0
+0044  940C     JMP 0x0
+0046  940C     JMP 0x0
+0048  940C     JMP 0x0
+004A  940C     JMP 0x0
+004C  940C     JMP 0x0
+004E  940C     JMP 0x0
+0050  940C     JMP 0x0
+0052  940C     JMP 0x0
+0054  940C     JMP 0x0
+0056  940C     JMP 0x0
+0058  940C     JMP 0x0
+0089  940C     JMP 0x0
+005A  2411     EOR R1, R1
+005B  BE1F     OUT 0x3F, R1
+005C  EFCF     LDI R28, 0xFF
+005D  E0D8     LDI R29, 0x08
+005E  BFDE     OUT 0x3E, R29
+005F  BFCD     OUT 0x3D, R28
+007E  940E     CALL 0x0
+0080  940C     JMP 0x0
